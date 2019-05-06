@@ -1,0 +1,119 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'STalk:index' %}">Sound App</a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                <li> <a href="{% url 'STalk:index' %}"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp; Home</a></li>
+
+            </ul>
+            <form class="navbar-form navbar-left" role="search" method="get" action="">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="q" value="">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{% url 'STalk:speaker_index' %}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;System
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <img src="{{ s.picture.url }}" class="img img-thumbnail img img-responsive">
+                <div class="caption">
+                    <h4>Name:{{ s.owner }}</h4>
+                    <h5>Music Type:{{ s.desc }}</h5>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-9">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="{% url 'STalk:speaker_index' %}">System</a></li>
+                <li role="presentation"><a href="">Details Speaker</a></li>
+            </ul>
+
+            <div class="panel panel-success">
+                <div class="panel-heading"></div>
+                <h3 class="text-center"></h3>
+            </div>
+
+
+
+
+
+            <div class="panel-body">
+            {% if message %}
+            <p class="text-success">{{ message }}</p>
+            {% endif %}
+
+            <div class="row">
+                <table class="col-sm-6">
+                        <thead>
+                        <tr><th>Sound System</th>
+                        <th>owner</th>
+                        <th>description</th>
+                        <th>Email</th>
+                        </thead>
+
+                    <tbody>
+                    {% if sys %}
+                        {% for s in sys %}
+                        <tr>
+                            <td>{{ s.owner }}</td>
+                            <td>{{ s.contact }}</td>
+                            <td>{{ s.email }}</td>
+                            <td>{{ s.desc }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+            </div>
+
+            </div>
+        </div>
+
+
+</div>
+
+{% endblock %}

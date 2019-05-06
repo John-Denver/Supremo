@@ -1,0 +1,53 @@
+{% extends 'STalk/base3.html' %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="text-center text-primary">
+            Dee_Jay
+            <hr>
+        </h3>
+
+
+        {% if deejays %}
+            {% for deejay in deejays %}
+
+
+        <div class="col-sm-3">
+            <div class="thumbnail">
+
+                <a href="{% url 'STalk:detail' deejay.id %}">
+                <img src="{{ deejay.picture.url }}" class="img img-thubnail" style="height: 300px; width: 400px;">
+                </a>
+
+
+                <div class="caption">
+                    <font size="10dp"><h6>Name:{{ deejay.DJ_name }},&nbsp &nbsp &nbsp Age:{{ deejay.age }}</h6>
+                    <h6>Music type:{{ deejay.music_type }}</h6></font>
+
+                        <form method="post" action="{% url 'STalk:delete_deejay' deejay.id %}">
+
+                            {% csrf_token %}
+                            <input type="hidden" name="deejay_id" value="{{ deejay.id }}">
+                            <a href="{% url 'STalk:delete_deejay' deejay.id %}">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+
+                        </form>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+

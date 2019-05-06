@@ -1,0 +1,164 @@
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" />
+    </head>
+
+<div class="container-fluid">
+<div class="page-header">
+  <h1>SOUND KE<small>1.0</small></h1>
+  <p class="lead">Based on <a href="http://instagram.com" target="_blank">Kenyan Entertainment</a> by <a href="http://facebook.com" target="_blank">Denver John</a>.</p>
+
+    <div class="form-group"><a href="{% url 'STalk:logins' %}">
+        <button type="submit" class="btn btn-success" style="padding-left:20px" >Logins</button>
+    </a>
+    </div>
+
+    <div class="form-group"><a href="{% url 'STalk:registrations' %}">
+        <button type="submit" class="btn btn-danger" style="padding-left:20px" >Registrations</button>
+    </a>
+    </div>
+
+  </div>
+
+  <div class="row">
+<div class="col-sm-4">
+
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle x collapsed" data-toggle="collapse" data-target="#navbar-collapse-x">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="{% url 'STalk:event_index' %}">
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Events
+</a>
+</div>
+
+
+<div class="collapse navbar-collapse" id="navbar-collapse-x">
+<ul class="nav navbar-nav navbar-right">
+<li data-toggle="collapse" data-target="#navbar-collapse.in"><a href="{% url 'STalk:event' %}">Add up</a></li>
+
+</ul>
+</div><!-- .navbar-collapse -->
+</nav>
+
+</div><div class="col-sm-4">
+
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle uarr collapsed" data-toggle="collapse" data-target="#navbar-collapse-uarr">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="{% url 'STalk:index2' %}">
+    <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;Deejay
+</a>
+</div>
+
+<div class="collapse navbar-collapse" id="navbar-collapse-uarr">
+<ul class="nav navbar-nav navbar-right">
+<li data-toggle="collapse" data-target="#navbar-collapse.in"><a href="{% url 'STalk:deejay' %}">Add Up</a></li>
+
+</ul>
+</div><!-- .navbar-collapse -->
+</nav>
+
+</div><div class="col-sm-4">
+
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle larr collapsed" data-toggle="collapse" data-target="#navbar-collapse-larr">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="{% url 'STalk:mc_index' %}">
+    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;MC's
+</a>
+</div>
+
+<div class="collapse navbar-collapse" id="navbar-collapse-larr">
+<ul class="nav navbar-nav navbar-right">
+<li data-toggle="collapse" data-target="#navbar-collapse.in"><a href="{% url 'STalk:mc' %}">Add up</a></li>
+
+</ul>
+</div><!-- .navbar-collapse -->
+</nav>
+
+</div></div><div class="row">
+
+<div class="col-sm-4">
+
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle rarr collapsed" data-toggle="collapse" data-target="#navbar-collapse-rarr">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="{% url 'STalk:speaker_index' %}">
+    <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>&nbsp;System/Speakers
+</a>
+</div>
+
+<div class="collapse navbar-collapse" id="navbar-collapse-rarr">
+<ul class="nav navbar-nav navbar-right">
+<li data-toggle="collapse" data-target="#navbar-collapse.in"><a href="{% url 'STalk:speaker' %}">Add up</a></li>
+
+</ul>
+</div><!-- .navbar-collapse -->
+</nav>
+
+</div><div class="col-sm-4">
+
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle plus collapsed" data-toggle="collapse" data-target="#navbar-collapse-plus">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="{% url 'STalk:hype_index' %}">
+    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp;Hyper
+</a>
+</div>
+
+<div class="collapse navbar-collapse" id="navbar-collapse-plus">
+<ul class="nav navbar-nav navbar-right">
+<li data-toggle="collapse" data-target="#navbar-collapse.in"><a href="{% url 'STalk:hype' %}">Add up</a></li>
+
+</ul>
+</div><!-- .navbar-collapse -->
+</nav>
+
+</div><div class="col-sm-4">
+
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle minus collapsed" data-toggle="collapse" data-target="#navbar-collapse-minus">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="{% url 'STalk:event_index' %}">
+    <span class="glyphicon glyphicon-pawn" aria-hidden="true"></span>&nbsp;Event Organizers
+</a>
+</div>
+
+<div class="collapse navbar-collapse" id="navbar-collapse-minus">
+<ul class="nav navbar-nav navbar-right">
+<li data-toggle="collapse" data-target="#navbar-collapse.in"><a href="{% url 'STalk:event' %}">Add up</a></li>
+
+</ul>
+</div><!-- .navbar-collapse -->
+</nav>
+
+</div></div></div>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'STalk/css/style.css' %}" type="text/css">
