@@ -1,5 +1,5 @@
 from django import forms
-from . models import Deejay, User, Mc, Planner, Hype,  Events, Ethnic, Speakers
+from . models import Deejay, User, Mc, Planner, Hype,  Events, Ethnic, Speakers, Festival
 
 
 class DjForm(forms.ModelForm):
@@ -29,6 +29,13 @@ class PlanForm(forms.ModelForm):
 
     class Meta:
         model = Planner
+        fields = '__all__'
+
+
+class FestForm(forms.ModelForm):
+
+    class Meta:
+        model = Festival
         fields = '__all__'
 
 

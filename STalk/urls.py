@@ -33,7 +33,7 @@ urlpatterns = [
     path('mc_register/', views.mc_register, name='mc_register'),
     path('login_mc/', views.login_mc, name='login_mc'),
     path('logout_mc/', views.logout_mc, name='logout_mc'),
-    path('(?P<m_id>[0-9]+)/', views.detailmc, name='detailmc'),
+    path('(?<m_id>[0-9]+)/', views.detailmc, name='detailmc'),
     path('(?<mc_id>[0-9]+)/delete_mc', views.delete_mc, name='delete_mc'),
 
     path('event_index', views.event_index, name='event_index'),
@@ -41,7 +41,7 @@ urlpatterns = [
     path('event_register/', views.event_register, name='event_register'),
     path('login_event/', views.login_event, name='login_event'),
     path('logout_event/', views.logout_event, name='logout_event'),
-    path('(?P<event_id>[0-9]+)/', views.detailevent, name='detailevent'),
+    path('(?<event_id>[0-9]+)/', views.detailevent, name='detailevent'),
     path('(?<event_id>[0-9]+)/delete_event', views.delete_event, name='delete_event'),
 
     path('hype_index', views.hype_index, name='hype_index'),
@@ -49,8 +49,17 @@ urlpatterns = [
     path('hyper_register/', views.hyper_register, name='hyper_register'),
     path('login_hyper/', views.login_hyper, name='login_hyper'),
     path('logout_hyper/', views.logout_hyper, name='logout_hyper'),
-    path('(?P<hype_id>[0-9]+)/', views.detailhype, name='detailhype'),
+    path('(?<hype_id>[0-9]+)/', views.detailhype, name='detailhype'),
     path('(?<hype_id>[0-9]+)/delete_hype', views.delete_hype, name='delete_hype'),
+
+
+    path('fest_index', views.fest_index, name='fest_index'),
+    path('fest', views.fest, name='fest'),
+    path('fest_register/', views.fest_register, name='fest_register'),
+    path('login_fest/', views.login_fest, name='login_fest'),
+    path('logout_fest/', views.logout_fest, name='logout_fest'),
+    path('(?<fest_id>[0-9]+)/', views.detailfest, name='detailfest'),
+    path('(?<fest_id>[0-9]+)/delete_fest', views.delete_fest, name='delete_fest'),
 ]
 
 

@@ -153,7 +153,7 @@ def delete_event(request, event_id):
     event = Planner.objects.get(pk=event_id)
     event.user = request.user
     event.delete()
-    event = Speakers.objects.all()
+    event = Planner.objects.all()
     return render(request, 'STalk/planner.html', {'event': event})
 
 
@@ -415,4 +415,72 @@ def logout_hyper(request):
     return redirect('STalk:login_hyper')
 
 
+def fest_index(request):
+    eve = Festival.objects.all()
 
+    context = {
+        'eve': eve,
+    }
+    return render(request, 'STalk/festivals.html', context)
+
+
+def detailfest(request, fest_id):
+    fest = get_object_or_404(Festival, pk=fest_id)
+    return render(request, 'STalk/detailfest.html', {'fest': fest})
+
+
+@login_required(login_url='STalk:login_fest')
+def fest(request):
+    form = FestForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        fest = form.save(commit=False)
+        fest.picture = request.FILES['picture']
+        fest.name = request.POST['name']
+        fest.charges = request.POST['charges']
+        fest.user = request.user
+        fest.save()
+        eve = Festival.objects.all()
+        return render(request, 'STalk/festivals.html', {'eve': eve})
+    form = FestForm()
+    return render(request, 'STalk/fest_sign.html', {'form': form})
+
+
+def delete_fest(request, fest_id):
+    fest = Festival.objects.get(pk=fest_id)
+    fest.user = request.user
+    fest.delete()
+    fest = Festival.objects.all()
+    return render(request, 'STalk/festivals.html', {'fest': fest})
+
+
+def fest_register(request):
+    form = UserForm(request.POST or None)
+    if form.is_valid():
+        user = form.save(commit=False)
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('STalk:login_fest')
+    return render(request, 'STalk/fest_register.html', {'form': form})
+
+
+def login_fest(request):
+    if request.method == 'POST':
+        username = request.POST['Username']
+        password = request.POST['Password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('STalk:fest_index')
+    return render(request, 'STalk/fest_login.html')
+
+
+def logout_fest(request):
+    logout(request)
+    return redirect('STalk:login_fest')

@@ -60,6 +60,15 @@ class Planner(models.Model):
         return self.name
 
 
+class Festival(models.Model):
+    name = models.CharField(max_length=100)
+    picture = models.FileField()
+    charges = models.CharField(max_length=250, default=0)
+
+    def __str__(self):
+        return self.name
+
+
 class Hype(models.Model):
     event_type = models.ForeignKey(Events, on_delete=models.PROTECT)
     name = models.CharField(max_length=100)

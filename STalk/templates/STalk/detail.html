@@ -91,13 +91,13 @@
                         </thead>
 
                     <tbody>
-                    {% if deejays %}
-                        {% for deejay in deejays %}
+                    {% if deejay.deejay_set %}
+                        {% for dee in deejay.deejay_set.all %}
                         <tr>
-                            <td>{{ deejay.DJ_name }}</td>
-                            <td>{{ deejay.contact }}</td>
-                            <td>{{ deejay.email }}</td>
-                            <td>{{ deejay.music_type }}</td>
+                            <td>{{ dee.DJ_name }}</td>
+                            <td>{{ dee.contact }}</td>
+                            <td>{{ dee.email }}</td>
+                            <td>{{ dee.music_type }}</td>
                         </tr>
                         {% endfor %}
                     {% endif %}

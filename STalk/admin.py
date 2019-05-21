@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Deejay, Mc, Ethnic, Events, Planner, Hype, Speakers
+from . models import Deejay, Mc, Ethnic, Events, Planner, Hype, Speakers, Festival
 
 # Register your models here.
 
@@ -10,3 +10,4 @@ admin.site.register(Events)
 admin.site.register(Planner)
 admin.site.register(Hype)
 admin.site.register(Speakers)
+admin.site.register(Festival)
